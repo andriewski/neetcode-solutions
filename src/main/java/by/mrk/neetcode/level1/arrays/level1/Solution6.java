@@ -9,14 +9,6 @@ import java.util.List;
  */
 public class Solution6 {
 
-    public static void main(String[] args) {
-        Solution6 s = new Solution6();
-        System.out.println(s.decode(s.encode(List.of("", ""))));
-        System.out.println(s.decode(s.encode(List.of("101234567890"))));
-        System.out.println(s.decode(s.encode(List.of("we", "say", ":", "yes", "!@#$%^&*()"))));
-
-    }
-
     public String encode(List<String> strs) {
         if (strs.isEmpty()) {
             return "";
