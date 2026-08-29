@@ -2,9 +2,7 @@ package by.mrk.neetcode.level1.arrays.level1;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * <a href="https://neetcode.io/problems/is-anagram/question">Valid Anagram</a>
