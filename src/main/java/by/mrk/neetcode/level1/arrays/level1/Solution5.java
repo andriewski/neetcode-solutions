@@ -61,7 +61,7 @@ public class Solution5 {
             number2Frequency.merge(num, 1, Integer::sum);
         }
 
-        Object[] frequency2Numbers = new Object[nums.length];
+        List<Integer>[] frequency2Numbers = new ArrayList[nums.length + 1];
 
         for (var number2FrequencyEntry : number2Frequency.entrySet()) {
             Integer number = number2FrequencyEntry.getKey();
@@ -71,13 +71,13 @@ public class Solution5 {
                 frequency2Numbers[internalIndex(frequency)] = new ArrayList<>(k);
             }
 
-            ((List<Integer>) frequency2Numbers[internalIndex(frequency)]).add(number);
+            frequency2Numbers[internalIndex(frequency)].add(number);
         }
 
         List<Integer> topKFrequentResult = new ArrayList<>();
 
         for (int i = nums.length; i > 0; i--) {
-            List<Integer> numbersForFrequency = (List<Integer>) frequency2Numbers[internalIndex(i)];
+            List<Integer> numbersForFrequency = frequency2Numbers[internalIndex(i)];
 
             if (numbersForFrequency != null) {
                 for (Integer number : numbersForFrequency) {
