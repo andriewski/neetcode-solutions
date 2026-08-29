@@ -15,10 +15,6 @@ import java.util.TreeMap;
  */
 public class Solution5 {
 
-    public static void main(String[] args) {
-        new Solution5().topKFrequent(new int[] {5, 2, 5, 3, 5, 3, 1, 1, 3}, 2);
-    }
-
     public int[] topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> number2Frequency = new HashMap<>();
 
