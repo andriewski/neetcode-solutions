@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * <a href="https://neetcode.io/problems/duplicate-integer/question">question link</a>
+ * <a href="https://neetcode.io/problems/duplicate-integer/question">Contains Duplicate</a>
  */
 public class Solution1 {
 
