@@ -1,4 +1,4 @@
-package by.mrk.neetcode.arrays;
+package by.mrk.neetcode.level1.arrays;
 
 import java.util.ArrayList;
 import java.util.Collections;

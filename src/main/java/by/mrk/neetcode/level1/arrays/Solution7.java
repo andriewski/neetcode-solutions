@@ -1,4 +1,4 @@
-package by.mrk.neetcode.arrays;
+package by.mrk.neetcode.level1.arrays;
 
 /**
  * <a href="https://neetcode.io/problems/products-of-array-discluding-self/question">Products of Array Except Self</a>
