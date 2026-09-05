@@ -10,40 +10,15 @@ public class Solution4 {
 
     public int[] dailyTemperatures(int[] temperatures) {
         int[] result = new int[temperatures.length];
-        Deque<IndexedValue> monotonicDecreasingStack = new ArrayDeque<>();
+        Deque<IndexedValue> stack = new ArrayDeque<>();
 
-        for (int i = temperatures.length - 1; i >= 0; i--) {
-            int temperature = temperatures[i];
-
-            if (monotonicDecreasingStack.isEmpty()) {
-                monotonicDecreasingStack.push(new IndexedValue(i, temperature));
-            } else {
-                IndexedValue lastValue = monotonicDecreasingStack.peekFirst();
-
-                if (lastValue.temperature > temperature) {
-                    result[i] = lastValue.index - i;
-                    monotonicDecreasingStack.push(new IndexedValue(i, temperature));
-                } else if (lastValue.temperature < temperature) {
-                    do {
-                        monotonicDecreasingStack.pop();
-                        lastValue = monotonicDecreasingStack.peekFirst();
-                    } while (lastValue != null && lastValue.temperature <= temperature);
-
-                    monotonicDecreasingStack.push(new IndexedValue(i, temperature));
-
-                    if (lastValue != null && lastValue.temperature > temperature) {
-                        result[i] = lastValue.index - i;
-                    }
-                } else {
-                    monotonicDecreasingStack.pop();
-                    lastValue = monotonicDecreasingStack.peekFirst();
-                    monotonicDecreasingStack.push(new IndexedValue(i, temperature));
-
-                    if (lastValue != null && lastValue.temperature > temperature) {
-                        result[i] = lastValue.index - i;
-                    }
-                }
+        for (int i = 0; i < temperatures.length; i++) {
+            while (!stack.isEmpty() && temperatures[i] > stack.peek().temperature) {
+                IndexedValue previousTemperature = stack.pop();
+                result[previousTemperature.index] = i - previousTemperature.index;
             }
+
+            stack.push(new IndexedValue(i, temperatures[i]));
         }
 
         return result;
