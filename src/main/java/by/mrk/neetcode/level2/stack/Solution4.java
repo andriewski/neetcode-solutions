@@ -11,6 +11,7 @@ public class Solution4 {
     public int[] dailyTemperatures(int[] temperatures) {
         int[] result = new int[temperatures.length];
         Deque<IndexedValue> monotonicDecreasingStack = new ArrayDeque<>();
+
         for (int i = temperatures.length - 1; i >= 0; i--) {
             int temperature = temperatures[i];
 
@@ -35,14 +36,12 @@ public class Solution4 {
                     }
                 } else {
                     monotonicDecreasingStack.pop();
-
                     lastValue = monotonicDecreasingStack.peekFirst();
+                    monotonicDecreasingStack.push(new IndexedValue(i, temperature));
 
                     if (lastValue != null && lastValue.temperature > temperature) {
                         result[i] = lastValue.index - i;
                     }
-
-                    monotonicDecreasingStack.push(new IndexedValue(i, temperature));
                 }
             }
         }
