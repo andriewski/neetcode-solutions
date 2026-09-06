@@ -1,9 +1,7 @@
 package by.mrk.neetcode.level2.stack;
 
-import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Deque;
 
 /**
  * <a href="https://neetcode.io/problems/car-fleet/question">Car Fleet</a>
@@ -15,17 +13,19 @@ public class Solution5 {
 
         Arrays.sort(cars, Comparator.comparing(Car::position).reversed());
 
-        Deque<Double> carFleetTimes = new ArrayDeque<>();
+        int fleets = 0;
+        double lastFleetTime =  Double.NEGATIVE_INFINITY;
 
         for (Car car : cars) {
             double newTime = car.time2Ride;
 
-            if (carFleetTimes.isEmpty() || newTime > carFleetTimes.peek()) {
-                carFleetTimes.push(newTime);
+            if (newTime > lastFleetTime) {
+                fleets++;
+                lastFleetTime = newTime;
             }
         }
 
-        return carFleetTimes.size();
+        return fleets;
     }
 
     private Car[] toCars(int target, int[] position, int[] speed) {
