@@ -8,6 +8,13 @@ import java.util.Comparator;
  */
 public class Solution5 {
 
+    public static void main(String[] args) {
+        Solution5 s = new Solution5();
+        System.out.println(s.carFleet(10, new int[] {1, 4}, new int[] {3, 2}));
+        System.out.println(s.carFleet(10, new int[] {4, 1, 0, 7}, new int[] {2, 2, 1, 1}));
+        System.out.println(s.carFleet(12, new int[] {10, 8, 0, 5, 3}, new int[] {2, 4, 1, 1, 3}));
+    }
+
     public int carFleet(int target, int[] position, int[] speed) {
         Car[] cars = toCars(target, position, speed);
 
@@ -41,7 +48,7 @@ public class Solution5 {
         return cars;
     }
 
-    class Car {
+    static class Car {
 
         int position;
         double time2Ride;
